@@ -1,0 +1,433 @@
+/* ==========================================================================
+   Hostel Room Booking System - Modern Stylesheet
+   ========================================================================== */
+
+:root {
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-light: #eff6ff;
+  --success: #16a34a;
+  --success-light: #f0fdf4;
+  --danger: #dc2626;
+  --danger-hover: #b91c1c;
+  --danger-light: #fef2f2;
+  --warning: #d97706;
+  --warning-light: #fffbeb;
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --gray-900: #0f172a;
+  
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  background-color: var(--gray-50);
+  color: var(--gray-800);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* --------------------------------------------------------------------------
+   Navbar
+   -------------------------------------------------------------------------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+  padding: 1rem 2.5rem;
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.navbar h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-links a {
+  color: #e0e7ff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   Container & Layout
+   -------------------------------------------------------------------------- */
+.container {
+  max-width: 1080px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+}
+
+.container h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.025em;
+}
+
+.container > p {
+  color: var(--gray-500);
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+}
+
+/* --------------------------------------------------------------------------
+   Home Page - Statistics Cards
+   -------------------------------------------------------------------------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 2rem 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--primary);
+}
+
+.stat-card:nth-child(2)::before {
+  background: var(--success);
+}
+
+.stat-card:nth-child(3)::before {
+  background: var(--warning);
+}
+
+.stat-card h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--gray-900);
+  margin-bottom: 0.35rem;
+}
+
+.stat-card p {
+  color: var(--gray-500);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* --------------------------------------------------------------------------
+   Filter Controls (Rooms Page)
+   -------------------------------------------------------------------------- */
+label {
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-right: 0.75rem;
+  font-size: 0.95rem;
+}
+
+select {
+  padding: 0.55rem 1.25rem;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--gray-300);
+  background-color: white;
+  color: var(--gray-800);
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   Room Grid & Cards
+   -------------------------------------------------------------------------- */
+.room-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.75rem;
+}
+
+.room-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-200);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+}
+
+.room-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--gray-300);
+}
+
+.room-card h2,
+.room-card h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 0.25rem;
+}
+
+.room-card p {
+  color: var(--gray-600);
+  font-size: 0.95rem;
+}
+
+.room-card p strong {
+  color: var(--gray-800);
+}
+
+/* Bed availability badges */
+.available,
+.full {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.825rem;
+  font-weight: 600;
+  margin: 0.25rem 0;
+}
+
+.available {
+  background-color: var(--success-light);
+  color: var(--success) !important;
+  border: 1px solid #bbf7d0;
+}
+
+.full {
+  background-color: var(--danger-light);
+  color: var(--danger) !important;
+  border: 1px solid #fecaca;
+}
+
+/* View Details Link */
+.room-card a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-top: 0.35rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: color 0.15s ease;
+}
+
+.room-card a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   Card Actions & Buttons
+   -------------------------------------------------------------------------- */
+.card-actions {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--gray-100);
+}
+
+button {
+  width: 100%;
+  padding: 0.7rem 1.25rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: var(--primary);
+  color: white;
+  box-shadow: var(--shadow-sm);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+button:disabled {
+  background-color: var(--gray-200);
+  color: var(--gray-500);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.cancel-btn {
+  background-color: var(--danger);
+}
+
+.cancel-btn:hover:not(:disabled) {
+  background-color: var(--danger-hover);
+}
+
+/* Warning message when already booked */
+.card-actions p {
+  background-color: var(--warning-light);
+  color: var(--warning);
+  border: 1px solid #fde68a;
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   Room Details Page & Facilities
+   -------------------------------------------------------------------------- */
+.container .room-card {
+  max-width: 600px;
+  margin: 1.5rem auto;
+}
+
+.room-card h3 {
+  font-size: 1.15rem;
+  margin-top: 0.75rem;
+  color: var(--gray-800);
+}
+
+.room-card ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.5rem 0 1rem 0;
+  padding: 0;
+}
+
+.room-card ul li {
+  background-color: var(--gray-100);
+  color: var(--gray-700);
+  padding: 0.35rem 0.8rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid var(--gray-200);
+}
+
+/* --------------------------------------------------------------------------
+   My Booking Page
+   -------------------------------------------------------------------------- */
+.container h3 {
+  color: var(--gray-500);
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Design
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    text-align: center;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .container {
+    padding: 0 1rem;
+    margin: 1.5rem auto;
+  }
+
+  .container h1 {
+    font-size: 1.6rem;
+  }
+
+  .room-list {
+    grid-template-columns: 1fr;
+  }
+}
